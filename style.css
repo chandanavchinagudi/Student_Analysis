@@ -1,0 +1,75 @@
+/* Body with student-themed background */
+body {
+  font-family: Arial, sans-serif;
+  background-image: url('https://cdn.pixabay.com/photo/2018/04/04/12/41/back-to-school-3294727_1280.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+
+/* Container */
+.container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+/* Header and Footer Images */
+.header-img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.footer-img {
+  width: 50px;
+  float: right;
+  margin-top: 10px;
+}
+
+/* Input fields */
+input {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Analyze Button */
+button {
+  padding: 10px 15px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background: #45a049;
+}
+
+/* Text Colors */
+h2, label, h3 {
+  color: #333;
+}
+
+/* Optional small icons next to input */
+.icon {
+  width: 20px;
+  vertical-align: middle;
+  margin-left: 5px;
+}

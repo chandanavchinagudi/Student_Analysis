@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Performance Analyzer</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            overflow: hidden;
+        }
+
+        /* Floating decorative circles */
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.15);
+        }
+
+        .circle1 {
+            width: 300px;
+            height: 300px;
+            top: -80px;
+            left: -80px;
+        }
+
+        .circle2 {
+            width: 250px;
+            height: 250px;
+            bottom: -70px;
+            right: -70px;
+        }
+
+        .circle3 {
+            width: 150px;
+            height: 150px;
+            bottom: 100px;
+            left: 100px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            padding: 30px;
+            width: 380px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            text-align: center;
+            color: white;
+            z-index: 10;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: none;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 10px;
+            color: white;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Decorative Background Shapes -->
+<div class="circle circle1"></div>
+<div class="circle circle2"></div>
+<div class="circle circle3"></div>
+
+<div class="container">
+    <h2>📊 Student Performance Analyzer</h2>
+
+    <input type="number" id="totalMarks" placeholder="Enter Total Marks">
+    <input type="number" id="marksObtained" placeholder="Enter Marks Obtained">
+    <input type="number" id="totalClasses" placeholder="Enter Total Classes">
+    <input type="number" id="classesAttended" placeholder="Enter Classes Attended">
+
+    <button onclick="analyze()">Analyze</button>
+
+    <div class="result" id="result"></div>
+</div>
+
+<footer>
+    Designed for Academic Analysis 🎓
+</footer>
+
+<script>
+    function analyze() {
+        let totalMarks = parseFloat(document.getElementById("totalMarks").value);
+        let marksObtained = parseFloat(document.getElementById("marksObtained").value);
+        let totalClasses = parseFloat(document.getElementById("totalClasses").value);
+        let classesAttended = parseFloat(document.getElementById("classesAttended").value);
+
+        if (totalMarks <= 0 || totalClasses <= 0) {
+            document.getElementById("result").innerHTML = "Please enter valid numbers.";
+            return;
+        }
+
+        let percentage = (marksObtained / totalMarks) * 100;
+        let attendance = (classesAttended / totalClasses) * 100;
+
+        let grade;
+
+        if (percentage >= 90) {
+            grade = "A+";
+        } else if (percentage >= 75) {
+            grade = "A";
+        } else if (percentage >= 60) {
+            grade = "B";
+        } else if (percentage >= 50) {
+            grade = "C";
+        } else {
+            grade = "Fail";
+        }
+
+        document.getElementById("result").innerHTML =
+            "Percentage: " + percentage.toFixed(2) + "%<br>" +
+            "Attendance: " + attendance.toFixed(2) + "%<br>" +
+            "Grade: " + grade;
+    }
+</script>
+
+</body>
+</html>
+
+     
